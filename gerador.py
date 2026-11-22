@@ -1,6 +1,19 @@
+import random
 import string
 
-print("Minúsculas:", string.ascii_lowercase)
-print("Maiúsculas:", string.ascii_uppercase)
-print("Números:", string.digits)
-print("Simbolos:", string.punctuation)
+caracteres = string.ascii_lowercase + string.ascii_uppercase + string.digits
+
+while True:
+    try:
+        tamanho = int(input("Tamanho da senha (mínimo 4): "))
+        if tamanho >= 4:
+            break
+        print("O tamanho mínimo é 4.")
+    except ValueError:
+        print("Digite um número inteiro válido.")
+
+senha = ""
+for i in range(tamanho):
+    senha = senha + random.choice(caracteres)
+
+print("Sua senha:", senha)
